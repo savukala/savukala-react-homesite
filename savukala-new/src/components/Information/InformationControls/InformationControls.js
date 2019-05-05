@@ -20,6 +20,7 @@ const informationControls = (props) => (
     shown={() => props.informationShown(optn.type)}
     hidden={() => props.informationHidden(optn.type)}
     disabled={props.disabled[optn.type]}
+    modalshown={props.modalshown}
     />
   ))}
 

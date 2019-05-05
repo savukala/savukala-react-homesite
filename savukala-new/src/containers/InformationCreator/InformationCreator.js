@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Aux from '../../hoc/Aux';
 import Information from '../../components/Information/Information';
 import InformationControls from '../../components/Information/InformationControls/InformationControls';
+import Modal from '../../components/UI/Modal/Modal';
 
 class InformationCreator extends Component {
 
@@ -12,7 +13,8 @@ class InformationCreator extends Component {
       educationinfo: 0,
       workinfo: 0,
       hobbiesinfo: 0
-    }
+    },
+    informationClick: false
   }
 
   showInformationHandler = (type) => {
@@ -38,7 +40,9 @@ class InformationCreator extends Component {
       this.setState({informations: updatedState});
     }
   }
-
+  modalHandler = () => {
+    this.setState({informationClick: true});
+  }
 
 
 
@@ -51,13 +55,16 @@ class InformationCreator extends Component {
     }
     return(
       <Aux>
+
         <InformationControls
           informationShown={this.showInformationHandler}
           informationHidden={this.hideInformationHandler}
           disabled={disabledButtons}
+          modalshown={this.modalHandler}
         />
+      <Modal show={this.state.informationClick}>
         <Information informations={this.state.informations} />
-
+        </Modal>
       </Aux>
     );
   }
