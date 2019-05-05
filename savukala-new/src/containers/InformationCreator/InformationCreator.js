@@ -43,7 +43,9 @@ class InformationCreator extends Component {
   modalHandler = () => {
     this.setState({informationClick: true});
   }
-
+  modalDestroyHandler = () => {
+    this.setState({informationClick: false});
+  }
 
 
   render (){
@@ -62,7 +64,9 @@ class InformationCreator extends Component {
           disabled={disabledButtons}
           modalshown={this.modalHandler}
         />
-      <Modal show={this.state.informationClick}>
+      <Modal show={this.state.informationClick}
+              modalClosed={this.modalDestroyHandler}
+        >
         <Information informations={this.state.informations} />
         </Modal>
       </Aux>
