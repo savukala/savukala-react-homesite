@@ -9,7 +9,7 @@ const informationControl = (props) => (
   <div className={classes.InformationControl}>
     <div className={classes.Label}>{props.label}</div>
     <button className={classes.More} onClick={() => {props.shown(); props.modalshown()}}>Show</button>
-    <button className={classes.Less} onClick={props.hidden} disabled={props.disabled}>Hide</button>
+  
 
   </div>
 
